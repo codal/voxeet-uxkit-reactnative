@@ -69,9 +69,7 @@ export default class VideoView extends Component<Props, State> {
     isAttached(): Promise<boolean>;
     isScreenShare(): Promise<boolean>;
     _sendCallReturn(command: any, param1?: any, param2?: any): Promise<VideoViewAsyncCallResult>;
-    _onCallReturn: (event: {
-        nativeEvent: VideoViewAsyncCallResult;
-    }) => void;
+    _onCallReturn: (event: any) => void;
     _onEvent: (event: VideoViewAsyncCallResult) => void;
     private setVideoView;
     render(): JSX.Element;

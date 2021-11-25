@@ -9,12 +9,7 @@ import MediaStream from "./types/MediaStream";
 import Participant from './types/Participant';
 import VoxeetSDK from './VoxeetSDK';
 
-interface IRCTVoxeetVideoViewProps {
-  attach?: MediaStream
-  onCallReturn: (event: { nativeEvent: VideoViewAsyncCallResult}) => void
-}
-
-const RCTVoxeetVideoView = requireNativeComponent<IRCTVoxeetVideoViewProps>('RCTVoxeetVideoView');
+const RCTVoxeetVideoView = requireNativeComponent('RCTVoxeetVideoView');
 
 export interface Stream {
   peerId: string;
@@ -162,7 +157,7 @@ export default class VideoView extends Component<Props, State> {
     return promise;
   }
 
-  _onCallReturn = (event: { nativeEvent: VideoViewAsyncCallResult}) => {
+  _onCallReturn = (event: any) => {
     !!event.nativeEvent && this._onEvent(event.nativeEvent);
   }
   
@@ -201,7 +196,7 @@ export default class VideoView extends Component<Props, State> {
             <RCTVoxeetVideoView {...props}
               attach={this.state.mediaStream}
               ref={(v: React.Component|null) => this.setVideoView(v)}
-              onCallReturn={(event: any) => this._onCallReturn(event) }/>
+              {...{ onCallReturn: (event: any) => this._onCallReturn(event) }}/>
           );
       }
     }
@@ -210,7 +205,7 @@ export default class VideoView extends Component<Props, State> {
       <RCTVoxeetVideoView
         {...props}
         ref={(v: React.Component|null) => this.setVideoView(v)}
-        onCallReturn={(event: any) => this._onCallReturn(event) }
+        { ...{onCallReturn: (event: any) => this._onCallReturn(event)} }
       />
     );
   }
