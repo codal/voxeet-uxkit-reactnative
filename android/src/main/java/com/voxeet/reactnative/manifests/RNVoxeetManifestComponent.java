@@ -70,7 +70,7 @@ public final class RNVoxeetManifestComponent extends AbstractManifestComponentPr
         //change the overlay used by default
         VoxeetToolkit.instance().getConferenceToolkit().setDefaultOverlayState(OverlayState.EXPANDED);
         VoxeetToolkit.instance().getReplayMessageToolkit().setDefaultOverlayState(OverlayState.EXPANDED);
-	    VoxeetToolkit.instance().getConferenceToolkit().setScreenShareEnabled(true);
+	    VoxeetToolkit.instance().getConferenceToolkit().setScreenShareEnabled(false);
 
         RNVoxeetConferencekitModule.initNotificationCenter();
         //RNVoxeetFirebaseIncomingNotificationService.createNotificationChannel(context);
