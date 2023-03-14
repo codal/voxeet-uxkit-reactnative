@@ -20,9 +20,9 @@ public class RNPermissionHelper {
         return new Promise<>(solver -> {
             List<String> permissions = new ArrayList<>(PERMISSIONS);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                permissions.add(Manifest.permission.BLUETOOTH_CONNECT);
-            }
+//             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//                 permissions.add(Manifest.permission.BLUETOOTH_CONNECT);
+//             }
 
             PermissionController.requestPermissions(permissions).then(permissionResults -> {
                 for (PermissionResult res : permissionResults) {
